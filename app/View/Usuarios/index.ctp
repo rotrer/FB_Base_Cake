@@ -1,0 +1,1 @@
+<script>parent.location.href = '<?php echo $urlAuthFb; ?>';</script>

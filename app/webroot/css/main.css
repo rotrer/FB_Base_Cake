@@ -1,0 +1,242 @@
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none;
+}
+:focus {
+  outline: 0;
+}
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font: 13px/1.5 'Helvetica Neue', Arial, 'Liberation Sans', FreeSans, sans-serif;
+}
+a:focus {
+  outline: 1px dotted;
+}
+hr {
+  border: 0 #ccc solid;
+  border-top-width: 1px;
+  clear: both;
+  height: 0;
+}
+h1 {
+  font-size: 25px;
+}
+h2 {
+  font-size: 23px;
+}
+h3 {
+  font-size: 21px;
+}
+h4 {
+  font-size: 19px;
+}
+h5 {
+  font-size: 17px;
+}
+h6 {
+  font-size: 15px;
+}
+ol {
+  list-style: decimal;
+}
+ul {
+  list-style: none;
+}
+li {
+  margin: 0;
+}
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset {
+  margin: 0;
+}
+.clearfix:after,
+.row:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix,
+.row {
+  display: inline-block;
+}
+.clearfix,
+.row {
+  display: block;
+}
+.row {
+  position: relative;
+  margin-left: -14px;
+}
+.gu1 .row {
+  width: 103px;
+}
+.gu2 .row {
+  width: 206px;
+}
+.gu3 .row {
+  width: 309px;
+}
+.gu4 .row {
+  width: 412px;
+}
+.gu5 .row {
+  width: 515px;
+}
+.gu6 .row {
+  width: 618px;
+}
+.gu7 .row {
+  width: 721px;
+}
+.gu8 .row {
+  width: 824px;
+}
+.col {
+  padding-left: 14px;
+  float: left;
+  position: relative;
+}
+.gu1 {
+  width: 89px;
+}
+.gu2 {
+  width: 192px;
+}
+.gu3 {
+  width: 295px;
+}
+.gu4 {
+  width: 398px;
+}
+.gu5 {
+  width: 501px;
+}
+.gu6 {
+  width: 604px;
+}
+.gu7 {
+  width: 707px;
+}
+.gu8 {
+  width: 810px;
+}
+#container {
+  margin: 0 auto;
+  position: relative;
+  width: 810px;
+  background: red;
+}
+#container .noes {
+  background: url(../img/hazte-fan.jpg) no-repeat center top #ffffff;
+  width: 810px;
+  height: 900px;
+  position: relative;
+}

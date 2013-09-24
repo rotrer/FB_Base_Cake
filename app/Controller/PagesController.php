@@ -82,9 +82,12 @@ class PagesController extends AppController {
 				"region_id" => $comun["Comuna"]["region_id"]
 			);
 		}
-
+            
+                $getUser = $this->Usuario->findByFbuid($this->Session->read('idFb'));
+                
 		$this->set('regiones', $regione);
 		$this->set('comunas', $arrDataC);
+                $this->set('userData', $getUser['Usuario']);
 
 		try {
 			$this->render(implode('/', $path));

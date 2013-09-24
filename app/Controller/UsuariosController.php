@@ -35,14 +35,16 @@ class UsuariosController extends AppController {
                         $getUser = $this->Usuario->findByFbuid($this->request->data["fbuid"]);
                         if(!$getUser['Usuario']['fbuid']){
                             if ($this->Usuario->save($this->request->data)) {
-                                    #$this->Session->setFlash(__('The usuario has been saved'));
-                                    #$this->redirect(array('action' => 'index'));
+                                $this->Session->write('uid', $this->Usuario->id);
+                                #$this->Session->setFlash(__('The usuario has been saved'));
+                                #$this->redirect(array('action' => 'index'));
                             } else {
                                     #$this->Session->setFlash(__('The usuario could not be saved. Please, try again.'));
                             }
                         }  else {
                             $this->Usuario->id = $getUser['Usuario']['id'];
                             $this->Usuario->save(array('ultimo_acceso' => date('c')));
+                            $this->Session->write('uid', $getUser['Usuario']['id']);
                         }
                         
                         #$log = $this->Usuario->getDataSource()->getLog(false, false);
@@ -51,6 +53,48 @@ class UsuariosController extends AppController {
 		}
 	}
         
+        public function save(){
+            if ($this->request->is('post')) {
+                $this->Usuario->id = $this->Session->read('uid');
+                $this->request->data["rut"] = str_replace(array(".","-",","), "", $this->request->data["rut"]);
+                if ($this->Usuario->save($this->request->data)) {
+                    $this->publicarFb();
+                    print json_encode(array("state" => 1));
+                } else {
+                    print json_encode(array("state" => 0));
+                }
+            }
+            die();
+	}
+        
+        public function publicarFb(){
+            /*
+            * Publicar FB
+            */
+            $fbSet = Configure::read('FB');
+            $pathFull = WWW_ROOT . DS . '/img/test-pass-icon.png';
+            $arrFbPhoto = array(
+                    "access_token" => $this->Session->read('access_token'),
+                    "message" => 'Lorem ipsum dolor et',
+                    "source" => '@' . $pathFull
+            );
+
+            $urlFbProfileUser = 'https://graph.facebook.com/me/photos';
+            $curlProfile = curl_init();
+            curl_setopt($curlProfile, CURLOPT_URL, $urlFbProfileUser);
+            curl_setopt($curlProfile, CURLOPT_HEADER, false);
+            curl_setopt($curlProfile, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($curlProfile, CURLOPT_SSL_VERIFYPEER, false);
+            curl_setopt($curlProfile, CURLOPT_SSL_VERIFYHOST, 0);
+            curl_setopt($curlProfile, CURLOPT_POST, true);
+            curl_setopt($curlProfile, CURLOPT_POSTFIELDS, $arrFbPhoto);
+            curl_setopt($curlProfile, CURLOPT_FOLLOWLOCATION, 1);
+            $_photo = curl_exec($curlProfile);
+            $jsonPhoto = json_decode($_photo,true);
+            $picture = $jsonPhoto['id'];
+        }
+
+
         public function callback(){
             if($this->request->query('code')){
                 $fbSet = Configure::read('FB');

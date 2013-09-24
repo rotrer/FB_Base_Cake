@@ -29,6 +29,7 @@ $fbSet = Configure::read('FB');
 		echo $this->Html->meta('icon');
                 echo $this->Html->css( 'main', null, array( 'media' => 'screen, projection' ) );
                 echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+                echo $this->Html->script('bootstrap.min');
                 echo $this->Html->script('rut');
 		echo $this->Html->script('validate');
 		echo $this->Html->script('main');
@@ -38,7 +39,7 @@ $fbSet = Configure::read('FB');
 	?>
 </head>
 <body>
-	<div id="container">
+	<div class="container">
             <?php echo $this->Session->flash(); ?>
             <?php echo $this->fetch('content'); ?>
 	</div>

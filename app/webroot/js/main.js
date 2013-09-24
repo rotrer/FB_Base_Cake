@@ -4,7 +4,7 @@ $(document).ready( function() {
         if(validaFormulario()){
             var data = $("#data").serialize();
             $.ajax({
-                url: '/saveuser',
+                url: $("#data").attr("action"),
                 type:'POST',
                 data: data,
                 dataType: 'json',
@@ -12,10 +12,10 @@ $(document).ready( function() {
                 },
                 success:function(results){
                     if(results.state == "1" || results.state == "2"){
-						$(".modal-header, .modal-footer, .container-fluid, .modal-header").fadeOut("fast", function(){
-						    $(".registroOk > .modal-header").show();
-						    $(".registroOk").fadeIn();
-						});
+                        $(".modal-header, .modal-footer, .container-fluid, .modal-header").fadeOut("fast", function(){
+                            $(".registroOk > .modal-header").show();
+                            $(".registroOk").fadeIn();
+                        });
                     }else{
 
                     }

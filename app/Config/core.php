@@ -377,3 +377,14 @@ Cache::config('_cake_model_', array(
 	'serialize' => ($engine === 'File'),
 	'duration' => $duration
 ));
+
+$confFb = array(
+    'FB' => array(
+                'APP_ID'=> $aAPP_ID,
+                'APP_SECRET'=> $aAPP_SECRET,
+                'GRAPH_FB'=> 'https://graph.facebook.com',
+                'PAGE_URL' => $urlTab,
+                'FB_APP' => $urlTab . "/app_" . $aAPP_ID
+            )
+);
+Configure::write($confFb);

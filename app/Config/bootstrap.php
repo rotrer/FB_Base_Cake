@@ -119,13 +119,3 @@ if (Configure::read('debug') > 0) {
     $aAPP_ID = '451654738287825';
     $aAPP_SECRET = '873671b0ae185e7bd62e657886d3821c';
 }
-$confFb = array(
-    'FB' => array(
-                'APP_ID'=> $aAPP_ID,
-                'APP_SECRET'=> $aAPP_SECRET,
-                'GRAPH_FB'=> 'https://graph.facebook.com',
-                'PAGE_URL' => $urlTab,
-                'FB_APP' => $urlTab . "/app_" . $aAPP_ID
-            )
-);
-Configure::write($confFb);

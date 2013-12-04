@@ -110,12 +110,3 @@ CakeLog::config('error', array(
 CakePlugin::load('DebugKit');
 CakePlugin::load('Cakeless');
 
-if (Configure::read('debug') > 0) {
-    $urlTab = 'https://www.facebook.com/rotrerdeveloper';
-    $aAPP_ID = '451654738287825';
-    $aAPP_SECRET = '873671b0ae185e7bd62e657886d3821c';
-}else{
-    $urlTab = 'https://www.facebook.com/ripleychile';
-    $aAPP_ID = '451654738287825';
-    $aAPP_SECRET = '873671b0ae185e7bd62e657886d3821c';
-}

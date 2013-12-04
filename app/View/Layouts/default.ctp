@@ -19,7 +19,11 @@
 $fbSet = Configure::read('FB');
 ?>
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7 ]> <html class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class=""> <!--<![endif]-->
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -27,10 +31,16 @@ $fbSet = Configure::read('FB');
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
-                echo $this->Html->css( 'main', null, array( 'media' => 'screen, projection' ) );
-                echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
-                echo $this->Html->script('bootstrap.min');
-                echo $this->Html->script('rut');
+        echo $this->Html->css( 'main', null, array( 'media' => 'screen, projection' ) );
+        echo $this->Html->script('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js');
+        echo $this->Html->script('bootstrap.min');
+    ?>
+    <!--[if lt IE 9 ]>
+        <?php echo $this->Html->script('html5shiv'); ?>
+        <?php echo $this->Html->script('respond.min'); ?>
+    <![endif]-->
+    <?php
+        echo $this->Html->script('rut');
 		echo $this->Html->script('validate');
 		echo $this->Html->script('main');
 		echo $this->fetch('meta');

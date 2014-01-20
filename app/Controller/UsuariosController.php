@@ -135,7 +135,7 @@ class UsuariosController extends AppController {
                         "lastname" => $metaData->last_name,
                         "email" => $metaData->email,
                         "genero" => $metaData->gender,
-                        "ip" => CakeRequest::clientIp(),
+                        "ip" => $this->request->clientIp(),
                         "complete" => 0,
                         "created" => date('c'),
                         "meta" => json_encode(array("link" => $metaData->link, "locale" => $metaData->locale, "name" => $metaData->name, "timezone" => $metaData->timezone, "updated_time" => $metaData->updated_time, "username" => $metaData->username))
